@@ -25,7 +25,8 @@ class TestOne(BaseClass):
         5. Selecting the delivery location (India) from a dropdown.
         6. Verifying the success message upon successful form submission.
 
-        The script uses the Page Object Design Pattern to organize and encapsulate webpage elements and actions, improving maintainability and reusability. The path to the ChromeDriver is fetched from the environment variable 'CHROMEDRIVER_PATH', allowing flexibility in specifying the path based on the user's system configuration.
+        The script uses the Page Object Design Pattern to organize and encapsulate webpage elements and actions, improving maintainability and reusability. 
+        The path to the ChromeDriver is fetched from the environment variable 'CHROMEDRIVER_PATH', allowing flexibility in specifying the path based on the user's system configuration.
 
         Usage:
         - This test is useful for automating shopping cart interactions, form submissions, and verifying success messages in a web application.
@@ -37,11 +38,15 @@ class TestOne(BaseClass):
 
         # Create an instance of the HomePage object
         homePage = HomePage(self.driver)
-        # Click on the 'shop' link on the home page
-        homePage.shopItems().click()
 
-        # Create an instance of the ShopPage object
-        shopPage = ShopPage(self.driver)
+        shopPage = homePage.shopItems()
+    
+
+        # # Click on the 'shop' link on the home page
+        # homePage.shopItems().click()
+        # # Create an instance of the ShopPage object
+        # shopPage = ShopPage(self.driver)
+
         # Get the list of product cards on the shop page
         cards = shopPage.getCardTitles()
 
