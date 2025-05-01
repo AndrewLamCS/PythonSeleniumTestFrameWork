@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from pageObjects.ConfirmPage import ConfirmPage
 
 class ShopPage:
     """
@@ -41,13 +42,16 @@ class ShopPage:
     
     def shopCheckoutItems(self):
         """
-        Gets the shop checkout button element in the navigation bar.
-
+        Clicks the shop checkout button element in the navigation bar and navigates to the confirmation page.
+        
         Returns:
-            WebElement: The shop checkout button element.
+            ConfirmPage: An instance of the ConfirmPage class initialized with the current driver.
         """
-        return self.driver.find_element(*ShopPage.shopCheckout)
-    
+        self.driver.find_element(*ShopPage.shopCheckout).click()
+        confirmPage = ConfirmPage(self.driver)
+        return confirmPage
+
+
     def cartCheckoutItems(self):
         """
         Gets the cart checkout button element.
