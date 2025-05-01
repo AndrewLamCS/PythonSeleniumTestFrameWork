@@ -39,13 +39,8 @@ class TestOne(BaseClass):
         # Create an instance of the HomePage object
         homePage = HomePage(self.driver)
 
+        # Navigate to the shop page by clicking on the 'Shop' link
         shopPage = homePage.shopItems()
-    
-
-        # # Click on the 'shop' link on the home page
-        # homePage.shopItems().click()
-        # # Create an instance of the ShopPage object
-        # shopPage = ShopPage(self.driver)
 
         # Get the list of product cards on the shop page
         cards = shopPage.getCardTitles()
@@ -67,7 +62,6 @@ class TestOne(BaseClass):
 
         # Click the 'Cart Checkout' button to proceed to the confirmation page
         shopPage.cartCheckoutItems().click()
-
 
         # Enter the delivery location by typing 'Ind' in the country search field
         confirmPage.getDeliveryLocation().send_keys("Ind")
