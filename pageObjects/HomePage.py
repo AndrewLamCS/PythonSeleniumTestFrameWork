@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from pageObjects.ShopPage import ShopPage
 
 class HomePage:
     """
@@ -20,9 +21,8 @@ class HomePage:
 
     def shopItems(self):
         """
-        Gets the 'Shop' link element.
 
-        Returns:
-            WebElement: The 'Shop' link element.
         """
-        return self.driver.find_element(*HomePage.shop)
+        self.driver.find_element(*HomePage.shop).click()
+        shopPage = ShopPage(self.driver)
+        return shopPage
