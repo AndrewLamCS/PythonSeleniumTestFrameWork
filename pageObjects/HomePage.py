@@ -21,7 +21,10 @@ class HomePage:
 
     def shopItems(self):
         """
+        Navigates to the shop page by clicking on the shop element.
 
+        Returns:
+            ShopPage: An instance of the ShopPage class initialized with the current driver.
         """
         self.driver.find_element(*HomePage.shop).click()
         shopPage = ShopPage(self.driver)
