@@ -63,13 +63,12 @@ class TestOne(BaseClass):
                 # Click the 'Add to Cart' button for the matching product
                 shopPage.getCardFooter()[i].click()
 
-        # Click the 'Checkout' button to proceed to the cart
-        shopPage.shopCheckoutItems().click()
+        confirmPage = shopPage.shopCheckoutItems()
+
         # Click the 'Cart Checkout' button to proceed to the confirmation page
         shopPage.cartCheckoutItems().click()
 
-        # Create an instance of the ConfirmPage object
-        confirmPage = ConfirmPage(self.driver)
+
         # Enter the delivery location by typing 'Ind' in the country search field
         confirmPage.getDeliveryLocation().send_keys("Ind")
 
