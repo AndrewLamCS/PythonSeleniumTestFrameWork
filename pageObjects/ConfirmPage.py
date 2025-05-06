@@ -33,16 +33,16 @@ class ConfirmPage:
         """
         return self.driver.find_element(*ConfirmPage.deliveryLocation)
 
-    def getDropdownIndia(self):
-        """
-        Waits for and gets the 'India' link in the dropdown.
+    # def getDropdownIndia(self):
+    #     """
+    #     Waits for and gets the 'India' link in the dropdown.
 
-        Returns:
-            WebElement: The 'India' link element.
-        """
-        wait = WebDriverWait(self.driver, 10)
-        wait.until(EC.presence_of_element_located((By.LINK_TEXT, "India")))
-        return self.driver.find_element(*ConfirmPage.dropdownIndia)
+    #     Returns:
+    #         WebElement: The 'India' link element.
+    #     """
+    #     wait = WebDriverWait(self.driver, 10)
+    #     wait.until(EC.presence_of_element_located((By.LINK_TEXT, "India")))
+    #     return self.driver.find_element(*ConfirmPage.dropdownIndia)
 
     def getCheckBox(self):
         """
