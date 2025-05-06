@@ -12,13 +12,11 @@ class TestHomePage(BaseClass):
 
         homePage = HomePage(self.driver)
         homePage.getName().send_keys("Rahul Shetty")
+        homePage.getEmail().send_keys("Shetty")
+        homePage.getCheckbox().click()
+        homePage.getGender().click()
+        self.selectOptionByText(homePage.getGender(), "Male")
 
-        self.driver.get("https://rahulshettyacademy.com/angularpractice")
-        #driver.maximize_window()
-        self.driver.find_element(By.NAME, "email").send_keys("shetty")
-        self.driver.find_element(By.ID, "exampleCheck1").click()
-        sel = Select(self.driver.find_element(By.ID, "exampleFormControlSelect1"))
-        sel.select_by_visible_text("Male")
         self.driver.find_element(By.XPATH, "//input[@type='submit']").click()
 
         alertText = self.driver.find_element(By.CSS_SELECTOR, "[class*='alert-success']").text
