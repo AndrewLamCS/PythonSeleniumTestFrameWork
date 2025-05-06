@@ -1,5 +1,6 @@
 import pytest
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
@@ -21,4 +22,14 @@ class BaseClass:
         """
         element = WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, text)))
-        
+    
+    def selectOptionByText(self, locator, text):
+        """
+        Selects an option from a dropdown menu by its visible text.
+
+        Args:
+            locator (tuple): The locator for the dropdown element.
+            text (str): The visible text of the option to select.
+        """
+        select = Select(locator)
+        select.select_by_visible_text(text)
