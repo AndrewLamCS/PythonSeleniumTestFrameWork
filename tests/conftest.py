@@ -69,3 +69,13 @@ def setup(request):
     
     # Close the browser after the test execution
     driver.close()
+
+@pytest.fixture()
+def dataLoad():
+    """
+    Fixture to load data for testing.
+    This fixture can be used to set up any necessary data or state before running tests.
+    """
+    print("User profile data is being created")
+    return ["Rahul", "Shetty", "rahulshettyacademy.com"]
+
