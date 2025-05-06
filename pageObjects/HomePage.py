@@ -18,7 +18,13 @@ class HomePage:
 
     # Locators for elements on the Home Page
     shop = (By.CSS_SELECTOR, "a[href='/angularpractice/shop']")  # Locator for the 'Shop' link
-
+    name = (By.CSS_SELECTOR, "[name='name']")  # Locator for the name input field
+    email = (By.NAME, "email")  # Locator for the email input field
+    checkbox = (By.ID, "exampleCheck1")  # Locator for the checkbox
+    gender = (By.ID, "exampleFormControlSelect1")  # Locator for gender dropdown
+    submit = (By.XPATH, "//input[@type='submit']")  # Locator for the submit button
+    successMessage = (By.CSS_SELECTOR, "[class*='alert-success']")  # Locator for success message
+    
     def shopItems(self):
         """
         Navigates to the shop page by clicking on the shop element.
@@ -29,3 +35,59 @@ class HomePage:
         self.driver.find_element(*HomePage.shop).click()
         shopPage = ShopPage(self.driver)
         return shopPage
+    
+    def getName(self):
+        """
+        Retrieves the name input field element.
+
+        Returns:
+            WebElement: The name input field element.
+        """
+        return self.driver.find_element(*HomePage.name)
+    
+    def getEmail(self):
+        """
+        Retrieves the email input field element.
+
+        Returns:
+            WebElement: The email input field element.
+        """
+        return self.driver.find_element(*HomePage.email)
+
+    def getCheckbox(self):
+        """
+        Retrieves the checkbox element.
+
+        Returns:
+            WebElement: The checkbox element.
+        """
+        return self.driver.find_element(*HomePage.checkbox)
+    
+    def getGender(self):
+        """
+        Retrieves the gender dropdown element.
+        Returns:
+            WebElement: gender dropdown element.
+        """
+        return self.driver.find_element(*HomePage.gender)
+    
+    def submitForm(self):
+        """
+        Retrieves the submit button element.
+        Returns:
+            WebElement: The submit button element.
+        """
+        return self.driver.find_element(*HomePage.submit)
+    
+    def getSuccessMessage(self):
+        """
+        Retrieves the success message element.
+
+        Returns:
+            WebElement: The success message element.
+        """
+        return self.driver.find_element(*HomePage.successMessage)
+
+    
+    
+
