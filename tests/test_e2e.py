@@ -58,6 +58,7 @@ class TestOne(BaseClass):
                 # Click the 'Add to Cart' button for the matching product
                 shopPage.getCardFooter()[i].click()
 
+        # Proceed to the confirmation page by clicking the 'Checkout' button
         confirmPage = shopPage.shopCheckoutItems()
 
         # Click the 'Cart Checkout' button to proceed to the confirmation page
@@ -66,8 +67,13 @@ class TestOne(BaseClass):
         # Enter the delivery location by typing 'Ind' in the country search field
         confirmPage.getDeliveryLocation().send_keys("Ind")
 
-        # Select 'India' from the dropdown list
-        confirmPage.getDropdownIndia().click()
+        # Wait for the 'India' link to become visible in the dropdown
+        self.verifyLinkPresence("India")
+
+        self.driver.find_element(By.LINK_TEXT, "India").click()
+
+        # # Select 'India' from the dropdown list
+        # confirmPage.getDropdownIndia().click()
 
         # Click the checkbox to agree to the terms and conditions
         confirmPage.getCheckBox().click()
